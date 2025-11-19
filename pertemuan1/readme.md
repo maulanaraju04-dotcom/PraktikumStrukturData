@@ -192,5 +192,3 @@ Size: 2
 | Melihat elemen | `queue[0]`            | `stack[-1]`       |
 
 ---
-
-Jika ingin, saya bisa membuatkan versi README dengan **gambar arsitektur Queue/Stack**, atau menambahkan **diagram alur (flowchart)**.
