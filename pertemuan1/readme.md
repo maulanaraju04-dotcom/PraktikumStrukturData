@@ -1,179 +1,196 @@
-1. Penjelasan Kode queue.py (struktur data Queue / Antrian)
+# Struktur Data Queue & Stack (Python)
 
-// Queue bekerja dengan prinsip FIFO (First In First Out).
+Repositori ini berisi dua contoh implementasi struktur data dasar menggunakan Python:
 
-Isi kode: 
+* **Queue (Antrian)** — bekerja dengan prinsip **FIFO** (*First In First Out*)
+* **Stack (Tumpukan)** — bekerja dengan prinsip **LIFO** (*Last In First Out*)
 
-queue
+Setiap file berisi implementasi dasar menggunakan list Python, beserta contoh operasi umum seperti **enqueue**, **dequeue**, **push**, **pop**, **peek**, **isEmpty**, dan **size**.
 
+---
+
+## 1. Queue — FIFO (First In First Out)
+
+### File: `queue.py`
+
+### Penjelasan Kode
+
+```python
+# Membuat list kosong sebagai antrian
 queue = []
 
-
-// Membuat list kosong yang akan digunakan sebagai antrian.
-
+# Menambahkan elemen ke dalam antrian menggunakan append()
 queue.append('A')
 queue.append('B')
 queue.append('C')
-print("Queue: ", queue)
+print("Queue:", queue)
+```
 
+**Penjelasan sintaks:**
 
-append() menambah elemen ke belakang antrian.
+* `queue = []` → membuat list kosong yang bertindak sebagai antrian.
+* `append()` → menambah elemen ke **belakang** antrian.
+* Setelah tiga kali append, isi queue: `['A', 'B', 'C']`.
 
-// Setelah kode di atas dijalankan, isi queue menjadi:
+---
 
-['A', 'B', 'C']
-
-
-Output:
-
-Queue:  ['A', 'B', 'C']
-
+```python
+# Menghapus elemen paling depan menggunakan pop(0)
 element = queue.pop(0)
-print("Dequeue: ", element)
+print("Dequeue:", element)
+```
 
+**Penjelasan sintaks:**
 
-// pop(0) mengambil dan menghapus elemen paling depan.
+* `pop(0)` → mengambil dan menghapus elemen indeks ke‐0 (paling depan).
+* Karena FIFO, yang keluar adalah `'A'`.
 
-// Karena queue FIFO, elemen pertama 'A' dikeluarkan.
+---
 
-Output:
-
-Dequeue:  A
-
-
-// Isi queue sekarang:
-
-['B', 'C']
-
+```python
+# Melihat elemen paling depan tanpa menghapusnya
 frontElement = queue[0]
-print("Peek: ", frontElement)
+print("Peek:", frontElement)
+```
 
+**Penjelasan sintaks:**
 
-// queue[0] melihat elemen paling depan tanpa menghapusnya.
+* `queue[0]` → mengakses elemen pertama.
+* Tidak menghapus elemen tersebut.
 
-// Elemen depan saat ini adalah 'B'.
+---
 
-Output:
+```python
+# Mengecek apakah queue kosong
+empty = not bool(queue)
+print("isEmpty:", empty)
+```
 
-Peek:  B
+**Penjelasan sintaks:**
 
-isEmpty = not bool(queue)
-print("isEmpty: ", isEmpty)
+* `bool(queue)` bernilai True jika queue berisi elemen.
+* `not` membalik hasilnya.
+* Jika queue berisi `['B','C']` → hasil `False`.
 
+---
 
-// bool(queue) bernilai True jika queue tidak kosong.
+```python
+# Menghitung ukuran antrian
+print("Size:", len(queue))
+```
 
-// not membalik nilainya.
+**Penjelasan sintaks:**
 
-// Karena queue masih berisi ['B', 'C'], maka hasilnya False.
+* `len(queue)` → menghitung total elemen dalam antrian.
 
-Output:
+---
 
-isEmpty:  False
+### Ringkasan Output
 
-print("Size: ", len(queue))
+```
+Queue: ['A', 'B', 'C']
+Dequeue: A
+Peek: B
+isEmpty: False
+Size: 2
+```
 
+---
 
-// Menghitung jumlah elemen saat ini. Ada 2 item.
+## 2. Stack — LIFO (Last In First Out)
 
-Output:
+### File: `stack.py`
 
-Size:  2
+### Penjelasan Kode
 
-// Ringkasan Output queue.py
-Queue:  ['A', 'B', 'C']
-Dequeue:  A
-Peek:  B
-isEmpty:  False
-Size:  2
-
-2. Penjelasan Kode stack.py (struktur data Stack / Tumpukan)
-
-// Stack bekerja dengan prinsip LIFO (Last In First Out).
-
-Isi kode: 
-
-stack
-
+```python
+# Membuat list kosong sebagai stack
 stack = []
 
-
-// Membuat list kosong yang akan digunakan sebagai stack.
-
+# Menambahkan elemen ke puncak stack
 stack.append('A')
 stack.append('B')
 stack.append('C')
-print("Stack: ", stack)
+print("Stack:", stack)
+```
 
+**Penjelasan sintaks:**
 
-// append() menambah elemen ke puncak tumpukan.
+* `stack = []` → membuat list kosong.
+* `append()` → menambah elemen ke **puncak** stack.
+* Isi stack: `['A','B','C']`.
 
-// Isi stack sekarang:
+---
 
-['A', 'B', 'C']
-
-
-Output:
-
-Stack:  ['A', 'B', 'C']
-
+```python
+# Menghapus elemen paling atas
 element = stack.pop()
-print("Pop: ", element)
+print("Pop:", element)
+```
 
+**Penjelasan sintaks:**
 
-// pop() tanpa indeks menghapus elemen paling atas.
+* `pop()` tanpa indeks → mengambil elemen terakhir (paling atas).
+* Karena LIFO, elemen yang keluar adalah `'C'`.
 
-// Karena stack LIFO, elemen terakhir 'C' diambil.
+---
 
-Output:
-
-Pop:  C
-
-
-// Isi stack sekarang:
-
-['A', 'B']
-
+```python
+# Melihat elemen paling atas tanpa menghapusnya
 topElement = stack[-1]
-print("Peek: ", topElement)
+print("Peek:", topElement)
+```
 
+**Penjelasan sintaks:**
 
-// stack[-1] melihat elemen paling atas tanpa menghapusnya.
+* `stack[-1]` → mengakses elemen indeks terakhir.
+* Tidak menghapus elemen tersebut.
 
-// Elemen paling atas adalah 'B'.
+---
 
-Output:
+```python
+# Mengecek apakah stack kosong
+empty = not bool(stack)
+print("isEmpty:", empty)
+```
 
-Peek:  B
+**Penjelasan sintaks:**
 
-isEmpty = not bool(stack)
-print("isEmpty: ", isEmpty)
+* Stack masih berisi `['A','B']` → hasil `False`.
 
+---
 
-// Stack masih berisi ['A', 'B'], jadi tidak kosong → False.
+```python
+# Menampilkan ukuran stack
+print("Size:", len(stack))
+```
 
-Output:
+**Penjelasan sintaks:**
 
-isEmpty:  False
+* `len(stack)` → menghitung jumlah elemen saat ini.
 
-print("Size :", len(stack))
+---
 
+### Ringkasan Output
 
-// Jumlah elemen saat ini: 2.
+```
+Stack: ['A', 'B', 'C']
+Pop: C
+Peek: B
+isEmpty: False
+Size: 2
+```
 
-Output:
+---
 
-Size : 2
+## Perbedaan Utama Queue vs Stack
 
-// Ringkasan Output stack.py
-Stack:  ['A', 'B', 'C']
-Pop:  C
-Peek:  B
-isEmpty:  False
-Size : 2
+| Operasi        | Queue (FIFO)          | Stack (LIFO)      |
+| -------------- | --------------------- | ----------------- |
+| Menambah       | `append()` → belakang | `append()` → atas |
+| Menghapus      | `pop(0)` → depan      | `pop()` → atas    |
+| Melihat elemen | `queue[0]`            | `stack[-1]`       |
 
-// Kesimpulan Perbedaan Utama
-Operasi	Queue (FIFO)	Stack (LIFO)
-Menambah	append() → belakang	append() → atas
-Menghapus	pop(0) → depan	pop() → atas
-Melihat elemen	queue[0]	stack[-1]
+---
+
+Jika ingin, saya bisa membuatkan versi README dengan **gambar arsitektur Queue/Stack**, atau menambahkan **diagram alur (flowchart)**.
