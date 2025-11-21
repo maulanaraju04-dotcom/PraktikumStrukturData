@@ -101,8 +101,8 @@ class LinkedList:
 ll = LinkedList()
 
 # insert
-ll.insert_at_first("jeruk")
-ll.insert_at_first("mangga")
+# ll.insert_at_first("jeruk")
+l.insert_at_first("mangga")
 ll.insert_at_first("manggis")
 ll.insert_at_last("apel")
 ll.insert_at(2, "anggur")
